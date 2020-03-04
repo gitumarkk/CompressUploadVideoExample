@@ -4,7 +4,7 @@ import * as FileSystem from 'expo-file-system';
 import { parse } from 'query-string';
 
 // App
-import constants from '../utils/constants';
+import * as constants from '../utils/constants';
 
 
 function* copyVideoToTempLocation(item) {

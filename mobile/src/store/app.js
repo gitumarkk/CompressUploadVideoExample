@@ -89,7 +89,7 @@ function* _uploadCompressedVideo(uri, item, authToken) {
 
     const resp = yield Axios({
       method: 'patch',
-      url: `${BASE_URL}/api/v1/source/video/${item.id}/upload_video/`,
+      url: `${BASE_URL}/api/v1/video/${item.id}/upload_video/`,
       data: data,
       onUploadProgress,
     });
@@ -168,7 +168,7 @@ function* uploadAsync(data) {
   let state = yield select();
 
   // Do on at a time sequentially
-  const url = `${BASE_URL}/api/v1/source/video/${data.id}/`;
+  const url = `${BASE_URL}/api/v1/video/${data.id}/`;
 
   console.log('Upload Sync on: ', data.id);
 

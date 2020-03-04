@@ -6,6 +6,9 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
+
+import { video as videoApi } from '../store/init';
+
 class UploadScreen extends React.Component {
   constructor(props){
     super(props);
@@ -32,6 +35,7 @@ class UploadScreen extends React.Component {
         console.log('ImagePicker Error: ', response.error);
       } else {
         console.log(response.path)
+        this.props.postVideo({ local_path: `file://${response.path}` }, { isUpload: true })
       }
     });
   }
@@ -53,7 +57,9 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch, props, state) => {
   return {
-}};
+    postVideo: (data, options) => dispatch(videoApi.postRequest(data, options)),
+  }
+};
 
 const mapStateToProps = (state, props) => {
   return {

@@ -8,6 +8,7 @@ import Axios from 'axios';
 // App
 import { BASE_URL } from './utils/constants';
 import { findAndReplace } from './utils/core';
+import { uploadVideoRequest, setUploadVideoList } from './app';
 
 const DEFAULT_STATE = {
   list: [],
@@ -426,9 +427,12 @@ class Base {
       yield put(this.postSuccess(resp.data));
       if (action.options && action.options.isUpload) {
         console.log('Do something');
+        yield put(setUploadVideoList({ id: resp.data.id }));
+        yield put(uploadVideoRequest());
       }
 
     } catch (err) {
+      console.log(err);
       yield put(this.postError(err));
     }
   }

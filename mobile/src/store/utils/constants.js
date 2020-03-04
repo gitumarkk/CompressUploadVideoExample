@@ -1,4 +1,4 @@
-export const BASE_URL = '';
+export const BASE_URL = 'http://192.168.2.11:8001';
 
 // Video Conversion
 export const TARGET_BITRATE = 1200000;

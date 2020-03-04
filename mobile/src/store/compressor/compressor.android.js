@@ -3,7 +3,7 @@ import * as FileSystem from 'expo-file-system';
 import { ProcessingManager } from 'react-native-video-processing';
 
 // App
-import constants from '../utils/constants';
+import * as constants from '../utils/constants';
 
 export default function* compressAndroid(item) {
   const t0 = new Date().getTime();

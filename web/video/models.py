@@ -1,6 +1,7 @@
 # Python
 from pathlib import Path
 import uuid
+import os
 
 # Django
 from django.db import models
@@ -10,7 +11,7 @@ def upload_video_path(instance, filename):
     name = fp.stem
     ext = fp.suffix
 
-    filename = "{uuid}.{ext}".format(uuid=uuid.uuid4(), ext=ext)
+    filename = "{uuid}{ext}".format(uuid=uuid.uuid4(), ext=ext)
     return os.path.join('media', filename)
 
 class Video(models.Model):

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'znwd=x!*ubd4)+0v1i2m*rw+v!he+$i+!q^jbatnrwlf)&bnq$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -128,3 +129,6 @@ STATIC_URL = '/static/'
 DEFAULT_RENDERER_CLASSES = (
     'rest_framework.renderers.BrowsableAPIRenderer',
 )
+
+MEDIA_ROOT = str(Path(BASE_DIR) / 'media')
+MEDIA_URL = '/media/'
